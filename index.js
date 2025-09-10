@@ -19,7 +19,16 @@ import { dbconnect } from './src/config/database.config.js';
 
 const app = express();
 app.use(express.json());
-app.use(cors({ credentials: true, origin: ['http://localhost:3000'] }));
+app.use(
+  cors({
+    credentials: true,
+    origin: [
+      'http://localhost:3000',
+      'react-foodordering.vercel.app' // replace with your Vercel domain
+    ],
+  })
+);
+
 
 app.use('/api/foods', foodRouter);
 app.use('/api/users', userRouter);
